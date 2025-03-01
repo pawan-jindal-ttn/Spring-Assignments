@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>SpringAssignments</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+<!--    Ques 2: Added junit dependency and its related repositories&ndash;&gt;-->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+<!--        Ques3 Add a new repository in the pom.xml and use its dependencies.-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.13.1</version>
+        </dependency>
+
+
+<!--        Ques5 Differentiate between the different dependency scopes: compile, runtime, test,-->
+<!--        provided using different dependencies being defined in your pom.xml.-->
+<!--        compiletime scope -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.13.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+<!--        runtime scope-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.11</version>
+            <scope>runtime</scope>
+        </dependency>
+<!--        provided scope -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+        </dependency>
+
+<!--        test scope-->
+<!--        junit dependencies already written above-->
+
+    </dependencies>
+
+<!--    Ques2: Add a maven dependency and its related repository URL.-->
+    <repositories>
+        <repository>
+            <id>Fit2Cloud</id>
+            <url>https://repository.fit2cloud.com/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>SonaType</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+
+<!--        Ques3: Add a new repository in the pom.xml and use its dependencies.-->
+        <repository>
+            <id>joda-time</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <!-- Ques 4: Using JAR plugin, make changes in the pom.xml to make the jar executable. Using java -jar JAR_NAME,
+    the output should be printed as "Hello World"-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
